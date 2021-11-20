@@ -6,7 +6,7 @@
 import echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from './mixins/resize'
-
+// asdas
 export default {
   mixins: [resize],
   props: {
@@ -52,7 +52,7 @@ export default {
         legend: {
           left: 'center',
           bottom: '10',
-          data: ['Teenagers', 'Adults', 'Seniors'/*,'Gold', 'Forecasts'*/]
+          data: ['Teenagers', 'Adults', 'Seniors'/*, 'Gold', 'Forecasts'*/]
         },
         series: [
           {
@@ -64,8 +64,8 @@ export default {
             data: [
               { value: 12345, name: 'Teenagers' },
               { value: 45678, name: 'Adults' },
-              { value: 14625, name: 'Seniors' },
-              //72648
+              { value: 14625, name: 'Seniors' }
+              // 72648
               // { value: 100, name: 'Gold' },
               // { value: 59, name: 'Forecasts' }
             ],
