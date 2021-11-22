@@ -6,7 +6,7 @@
 import echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from './mixins/resize'
-// asdas
+
 export default {
   mixins: [resize],
   props: {
@@ -45,14 +45,18 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
 
       this.chart.setOption({
+        title: {
+          text: 'Customer Age',
+          left: 'center'
+        },
         tooltip: {
           trigger: 'item',
           formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         legend: {
           left: 'center',
-          bottom: '10',
-          data: ['Teenagers', 'Adults', 'Seniors'/*, 'Gold', 'Forecasts'*/]
+          bottom: '5',
+          data: ['Teenagers', 'Adults', 'Seniors']
         },
         series: [
           {
@@ -65,9 +69,6 @@ export default {
               { value: 12345, name: 'Teenagers' },
               { value: 45678, name: 'Adults' },
               { value: 14625, name: 'Seniors' }
-              // 72648
-              // { value: 100, name: 'Gold' },
-              // { value: 59, name: 'Forecasts' }
             ],
             animationEasing: 'cubicInOut',
             animationDuration: 2600

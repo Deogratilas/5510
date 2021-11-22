@@ -20,7 +20,7 @@ export default {
     },
     height: {
       type: String,
-      default: '300px'
+      default: '508px'
     }
   },
   data() {
@@ -46,31 +46,41 @@ export default {
 
       this.chart.setOption({
         title: {
-          text: 'Customer Gender',
+          text: 'Different Customers Asset',
           left: 'center'
         },
         tooltip: {
-          trigger: 'item',
-          formatter: '{a} <br/>{b} : {c} ({d}%)'
+          trigger: 'item'
         },
         legend: {
-          left: 'center',
-          bottom: '5',
-          data: ['Male', 'Female', 'Others']
+          bottom: '1%',
+          left: 'center'
         },
         series: [
           {
-            name: 'Customer Gender',
+            name: 'Access From',
             type: 'pie',
-            radius: [15, 95],
-            center: ['50%', '50%'],
+            radius: ['50%', '80%'],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: '30',
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: {
+              show: false
+            },
             data: [
-              { value: 35666, name: 'Male' },
-              { value: 34777, name: 'Female' },
-              { value: 2205, name: 'Others' }
-            ],
-            animationEasing: 'cubicInOut',
-            animationDuration: 2600
+              { value: 1048, name: 'Asset Up' },
+              { value: 735, name: 'Asset Stay' },
+              { value: 580, name: 'Asset Down' }
+            ]
           }
         ]
       })
@@ -78,3 +88,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>

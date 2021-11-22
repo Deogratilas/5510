@@ -45,21 +45,24 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
 
       this.chart.setOption({
+        title: {
+          text: 'Customer Level',
+          left: 'center'
+        },
         tooltip: {
           trigger: 'item',
           formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
         legend: {
           left: 'center',
-          bottom: '10',
-          data: ['Silver','Gold','Platinum','Dimond','Royal' /*,'Gold', 'Forecasts'*/]
+          bottom: '5',
+          data: ['Silver', 'Gold', 'Platinum', 'Dimond', 'Royal']
         },
         series: [
           {
             name: 'Customer Level',
             type: 'pie',
-            //roseType: 'radius',
-            radius: [15, 95],
+            radius: [10, 90],
             center: ['50%', '50%'],
             data: [
               { value: 46666, name: 'Silver' },
@@ -67,7 +70,6 @@ export default {
               { value: 5222, name: 'Platinum' },
               { value: 699, name: 'Dimond' },
               { value: 62, name: 'Royal' }
-              //72648
             ],
             animationEasing: 'cubicInOut',
             animationDuration: 2600

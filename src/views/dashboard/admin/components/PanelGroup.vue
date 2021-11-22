@@ -7,7 +7,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Total Customer
+            Customer
           </div>
           <count-to :start-val="0" :end-val="116236" :duration="2600" class="card-panel-num" />
         </div>
@@ -20,7 +20,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Flowin
+            Asset
           </div>
           <count-to :start-val="0" :end-val="81212" :duration="3000" class="card-panel-num" />
         </div>
@@ -33,7 +33,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Flowout
+            Deposit
           </div>
           <count-to :start-val="0" :end-val="9280" :duration="3200" class="card-panel-num" />
         </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Investment
+            Recommend
           </div>
           <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num" />
         </div>
@@ -81,7 +81,7 @@ export default {
   .card-panel {
     height: 108px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 10px;
     position: relative;
     overflow: hidden;
     color: #666;
@@ -137,7 +137,7 @@ export default {
 
     .card-panel-icon {
       float: left;
-      font-size: 48px;
+      font-size: 30px;
     }
 
     .card-panel-description {
@@ -149,12 +149,12 @@ export default {
       .card-panel-text {
         line-height: 18px;
         color: rgba(0, 0, 0, 0.45);
-        font-size: 16px;
+        font-size: 15px;
         margin-bottom: 12px;
       }
 
       .card-panel-num {
-        font-size: 20px;
+        font-size: 15px;
       }
     }
   }
