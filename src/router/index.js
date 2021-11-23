@@ -285,16 +285,23 @@ export const asyncRoutes = [
     children: [
       {
         path: 'export-excel',
-        component: () => import('@/views/excel/export-excel'),
+        component: () => import('@/views/table/complex-table'),
         name: 'ExportExcel',
         meta: { title: 'loyal customer' }
       },
       {
         path: 'export-selected-excel',
-        component: () => import('@/views/excel/select-excel'),
+        component: () => import('@/views/table/complex-table'),
         name: 'SelectExcel',
         meta: { title: 'potential-loss customer' }
+      },
+      {
+        path: 'bond',
+        component: () => import('@/views/table/complex-table'),
+        name: 'Bond',
+        meta: { title: 'Bonds' }
       }
+
       // {
       //   path: 'export-merge-header',
       //   component: () => import('@/views/excel/merge-header'),
