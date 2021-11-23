@@ -1,14 +1,14 @@
 <template>
   <div class="app-container">
     <div class="filter-container">
-      <el-input v-model="listQuery.title" placeholder="Custmoer_No" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
+      <el-input v-model="listQuery.title" placeholder="Bond_No" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
       <!-- <el-select v-model="listQuery.importance" placeholder="Imp" clearable style="width: 90px" class="filter-item">
         <el-option v-for="item in importanceOptions" :key="item" :label="item" :value="item" />
-      </el-select>
-      <el-select v-model="listQuery.type" placeholder="Type" clearable class="filter-item" style="width: 130px">
+      </el-select> -->
+      <!-- <el-select v-model="listQuery.type" placeholder="Type" clearable class="filter-item" style="width: 130px">
         <el-option v-for="item in calendarTypeOptions" :key="item.key" :label="item.display_name+'('+item.key+')'" :value="item.key" />
-      </el-select>
-      <el-select v-model="listQuery.sort" style="width: 140px" class="filter-item" @change="handleFilter">
+      </el-select> -->
+      <!-- <el-select v-model="listQuery.sort" style="width: 140px" class="filter-item" @change="handleFilter">
         <el-option v-for="item in sortOptions" :key="item.key" :label="item.label" :value="item.key" />
       </el-select> -->
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
@@ -35,38 +35,44 @@
       style="width: 100%;"
       @sort-change="sortChange"
     >
-      <el-table-column label="Customer_No" prop="id" sortable="custom" align="center" width="150px" :class-name="getSortClass('id')">
+      <el-table-column label="Bond_No" prop="id" sortable="custom" align="center" width="150px" :class-name="getSortClass('id')">
         <template slot-scope="{row}">
           <span>{{ row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Last_Operation_Date" width="200px" align="center">
+      <!-- <el-table-column label="Last_Operation_Date" width="200px" align="center">
         <template slot-scope="{row}">
           <span>{{ row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column label="Detail_link" min-width="150px">
         <template slot-scope="{row}">
           <span class="link-type" @click="handleUpdate(row)">{{ row.title }}</span>
           <el-tag>{{ row.type | typeFilter }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="Name" width="110px" align="center">
+      <!-- <el-table-column label="Name" width="110px" align="center">
         <template slot-scope="{row}">
           <span>{{ row.author }}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column v-if="showReviewer" label="Reviewer" width="110px" align="center">
         <template slot-scope="{row}">
           <span style="color:red;">{{ row.reviewer }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Level" width="80px">
+      <!-- <el-table-column label="Level" width="80px">
         <template slot-scope="{row}">
           <svg-icon v-for="n in + row.importance" :key="n" icon-class="star" class="meta-item__icon" />
         </template>
+      </el-table-column> -->
+      <el-table-column label="New viewer" align="center" width="100">
+        <template slot-scope="{row}">
+          <span v-if="row.pageviews" class="link-type" @click="handleFetchPv(row.pageviews)">{{ row.pageviews }}</span>
+          <span v-else>0</span>
+        </template>
       </el-table-column>
-      <el-table-column label="Deposits" align="center" width="95">
+      <el-table-column label="New buyer" align="center" width="100">
         <template slot-scope="{row}">
           <span v-if="row.pageviews" class="link-type" @click="handleFetchPv(row.pageviews)">{{ row.pageviews }}</span>
           <span v-else>0</span>

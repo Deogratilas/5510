@@ -297,7 +297,7 @@ export const asyncRoutes = [
       },
       {
         path: 'bond',
-        component: () => import('@/views/table/complex-table'),
+        component: () => import('@/views/table/bod'),
         name: 'Bond',
         meta: { title: 'Bonds' }
       }
