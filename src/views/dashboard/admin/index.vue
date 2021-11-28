@@ -1,17 +1,13 @@
 <template>
   <div class="dashboard-editor-container">
-    <!-- <github-corner class="github-corner" /> -->
-    <el-button style="margin-bottom: 32px;">
-      Add
-    </el-button>
     <el-row :gutter="30">
-      <el-col :xs="24" :sm="24" :lg="14" style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
+      <el-col :xs="24" :sm="24" :lg="14">
         <div class="chart">
           <panel-group @handleSetLineChartData="handleSetLineChartData" />
           <line-chart :chart-data="lineChartData" />
         </div>
       </el-col>
-      <el-col :xs="24" :sm="24" :lg="10" style="background:#fff;padding:16px 16px 0px;margin-bottom:32px;">
+      <el-col :xs="24" :sm="24" :lg="10">
         <div class="chart">
           <aum-chart />
         </div>
@@ -34,18 +30,6 @@
         </div>
       </el-col>
     </el-row>
-
-    <!-- <el-row :gutter="8">
-      <el-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 24}" :lg="{span: 12}" :xl="{span: 12}" style="padding-right:8px;margin-bottom:30px;">
-        <transaction-table />
-      </el-col>
-      <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-        <todo-list />
-      </el-col>
-      <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-        <box-card />
-      </el-col>
-    </el-row> -->
   </div>
 </template>
 
@@ -57,12 +41,7 @@ import AumChart from './components/AumChart'
 import Age from './components/Age'
 import Gender from './components/Gender'
 import Level from './components/Level'
-// import TransactionTable from './components/TransactionTable'
-// import TodoList from './components/TodoList'
-// import BoxCard from './components/BoxCard'
-// import RaddarChart from './components/RaddarChart'
-// import GithubCorner from '@/components/GithubCorner'
-// import BarChart from './components/BarChart'
+
 const lineChartData = {
   newVisitis: {
     expectedData: [100, 120, 161, 134, 105, 160],
@@ -91,10 +70,6 @@ export default {
     Age,
     Gender,
     Level
-    // TransactionTable,
-    // TodoList,
-    // BoxCard// PieChart,
-    // BarChart,// RaddarChart,// GithubCorner,
   },
   data() {
     return {
@@ -129,8 +104,9 @@ export default {
   }
 
   .chart{
-    border: 1px solid #fff;
-    padding: 10px;
+    background: #fff;
+    padding: 16px 16px 0;
+    margin-bottom: 32px;
   }
 }
 

@@ -8,6 +8,7 @@ require('echarts/theme/macarons')
 import resize from './mixins/resize'
 
 export default {
+
   mixins: [resize],
   props: {
     className: {
@@ -43,10 +44,9 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
       this.chart.setOption({
         title: {
-          text: 'Customer Age',
+          text: 'Potential Loss Customer',
           left: 'center'
         },
         tooltip: {
@@ -56,19 +56,19 @@ export default {
         legend: {
           left: 'center',
           bottom: '5',
-          data: ['Teenagers', 'Adults', 'Seniors']
+          data: ['Type 1', 'Type 2', 'Type 3', 'Type 4']
         },
         series: [
           {
             name: 'Customer Age',
             type: 'pie',
-            roseType: 'radius',
             radius: [15, 95],
             center: ['50%', '50%'],
             data: [
-              { value: 12345, name: 'Teenagers' },
-              { value: 45678, name: 'Adults' },
-              { value: 14625, name: 'Seniors' }
+              { value: 16844, name: 'Type 1' },
+              { value: 4, name: 'Type 2' },
+              { value: 4736, name: 'Type 3' },
+              { value: 657, name: 'Type 4' }
             ],
             animationEasing: 'cubicInOut',
             animationDuration: 2600
@@ -79,3 +79,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>

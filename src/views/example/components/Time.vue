@@ -43,35 +43,30 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
       this.chart.setOption({
         title: {
-          text: 'Customer Age',
+          text: 'Potential Loss Customer Average Last Trading Time',
           left: 'center'
         },
         tooltip: {
           trigger: 'item',
-          formatter: '{a} <br/>{b} : {c} ({d}%)'
+          formatter: '{b} : {c}'
         },
-        legend: {
-          left: 'center',
-          bottom: '5',
-          data: ['Teenagers', 'Adults', 'Seniors']
+        xAxis: {
+          data: ['Type 1', 'Type 2', 'Type 3', 'Type 4']
+        },
+        yAxis: {
+          type: 'value'
         },
         series: [
           {
-            name: 'Customer Age',
-            type: 'pie',
-            roseType: 'radius',
-            radius: [15, 95],
-            center: ['50%', '50%'],
-            data: [
-              { value: 12345, name: 'Teenagers' },
-              { value: 45678, name: 'Adults' },
-              { value: 14625, name: 'Seniors' }
-            ],
-            animationEasing: 'cubicInOut',
-            animationDuration: 2600
+            data: [509.4, 577.2, 2551.8, 529.3],
+            type: 'bar',
+            color: '#ffc6dc',
+            showBackground: true,
+            backgroundStyle: {
+              color: 'rgba(180, 180, 180, 0.2)'
+            }
           }
         ]
       })
