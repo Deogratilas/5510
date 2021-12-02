@@ -1,15 +1,10 @@
 <template>
   <div class="createPost-container">
     <el-form ref="postForm" :model="postForm" :rules="rules" class="form-container">
+
       <sticky :z-index="10" :class-name="'sub-navbar '+postForm.status">
-        <CommentDropdown v-model="postForm.comment_disabled" />
-        <PlatformDropdown v-model="postForm.platforms" />
-        <SourceUrlDropdown v-model="postForm.source_uri" />
         <el-button v-loading="loading" style="margin-left: 10px;" type="success" @click="submitForm">
-          Publish
-        </el-button>
-        <el-button v-loading="loading" type="warning" @click="draftForm">
-          Draft
+          Send
         </el-button>
       </sticky>
 
@@ -25,7 +20,7 @@
             <div class="postInfo-container">
               <el-row>
                 <el-col :span="8">
-                  <el-form-item label-width="60px" label="Author:" class="postInfo-container-item">
+                  <el-form-item label-width="70px" label="Customer:" class="postInfo-container-item">
                     <el-select v-model="postForm.author" :remote-method="getRemoteUserList" filterable default-first-option remote placeholder="Search user">
                       <el-option v-for="(item,index) in userListOptions" :key="item+index" :label="item" :value="item" />
                     </el-select>
@@ -33,7 +28,7 @@
                 </el-col>
 
                 <el-col :span="10">
-                  <el-form-item label-width="120px" label="Publish Time:" class="postInfo-container-item">
+                  <el-form-item label-width="120px" label="Sent Time:" class="postInfo-container-item">
                     <el-date-picker v-model="displayTime" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="Select date and time" />
                   </el-form-item>
                 </el-col>
@@ -42,7 +37,7 @@
                   <el-form-item label-width="90px" label="Importance:" class="postInfo-container-item">
                     <el-rate
                       v-model="postForm.importance"
-                      :max="3"
+                      :max="5"
                       :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
                       :low-threshold="1"
                       :high-threshold="3"
@@ -80,15 +75,14 @@ import Sticky from '@/components/Sticky' // 粘性header组件
 import { validURL } from '@/utils/validate'
 import { fetchArticle } from '@/api/article'
 import { searchUser } from '@/api/remote-search'
-import Warning from './Warning'
-import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './components/Dropdown'
+
 const defaultForm = {
   status: 'draft',
   title: '', // 文章题目
   content: '', // 文章内容
   content_short: '', // 文章摘要
   source_uri: '', // 文章外链
-  image_uri: '', // 文章图片
+  image_uri: 'fgx', // 文章图片
   display_time: undefined, // 前台展示时间
   id: undefined,
   platforms: ['a-platform'],
@@ -97,7 +91,7 @@ const defaultForm = {
 }
 export default {
   name: 'ArticleDetail',
-  components: { Tinymce, MDinput, Upload, Sticky, Warning, CommentDropdown, PlatformDropdown, SourceUrlDropdown },
+  components: { Tinymce, MDinput, Upload, Sticky },
   props: {
     isEdit: {
       type: Boolean,
@@ -201,12 +195,12 @@ export default {
         if (valid) {
           this.loading = true
           this.$notify({
-            title: '成功',
-            message: '发布文章成功',
+            title: 'Success',
+            message: 'Message Sent Success',
             type: 'success',
             duration: 2000
           })
-          this.postForm.status = 'published'
+          this.postForm.status = 'Message Sent Success'
           this.loading = false
         } else {
           console.log('error submit!!')
@@ -241,7 +235,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../../styles/mixin";
+  @import "../../../styles/mixin.scss";
   .createPost-container {
     position: relative;
     .createPost-main-container {
@@ -262,7 +256,7 @@ export default {
       top: 0px;
     }
   }
-  .article-textarea ::v-deep {
+  .article-textarea {
     textarea {
       padding-right: 40px;
       resize: none;

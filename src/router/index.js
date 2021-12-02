@@ -215,9 +215,9 @@ export const asyncRoutes = [
       },
       {
         path: 'list',
-        component: () => import('@/views/example/list'),
+        component: () => import('@/views/example/components/Chatting'),
         name: 'ArticleList',
-        meta: { title: 'Details', icon: 'tree-table' }
+        meta: { title: 'Chatting Box', icon: 'tree-table' }
       }
     ]
   },
@@ -287,33 +287,20 @@ export const asyncRoutes = [
         path: 'export-excel',
         component: () => import('@/views/table/loyal'),
         name: 'ExportExcel',
-        meta: { title: 'loyal customer' }
+        meta: { title: 'Loyal Customer', icon: 'people' }
       },
       {
         path: 'export-selected-excel',
         component: () => import('@/views/table/loss'),
         name: 'SelectExcel',
-        meta: { title: 'potential-loss customer' }
+        meta: { title: 'Latent Loss Customer', icon: 'user' }
       },
       {
         path: 'bond',
         component: () => import('@/views/table/bod'),
         name: 'Bond',
-        meta: { title: 'Bonds' }
+        meta: { title: 'Bonds', icon: 'money' }
       }
-
-      // {
-      //   path: 'export-merge-header',
-      //   component: () => import('@/views/excel/merge-header'),
-      //   name: 'MergeHeader',
-      //   meta: { title: 'Merge Header' }
-      // },
-      // {
-      //   path: 'upload-excel',
-      //   component: () => import('@/views/excel/upload-excel'),
-      //   name: 'UploadExcel',
-      //   meta: { title: 'Upload Excel' }
-      // }
     ]
   },
 
